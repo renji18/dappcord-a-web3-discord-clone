@@ -1,5 +1,4 @@
 const { ethers } = require("hardhat")
-const hre = require("hardhat")
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')

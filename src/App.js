@@ -32,9 +32,9 @@ function App() {
 
     const network = await provider.getNetwork();
     const dappcord = new ethers.Contract(
-      config[network.chainId].Dappcord.address,
-      Dappcord,
-      provider
+      config[network.chainId].Dappcord.address, // The address of contract which we access from the config.json
+      Dappcord, // The abi
+      provider // The account which we connect to the contract
     );
     setDappcord(dappcord);
 
@@ -45,7 +45,6 @@ function App() {
       const channel = await dappcord.getChannel(i);
       channels.push(channel);
     }
-
     setChannels(channels);
 
     window.ethereum.on("accountsChanged", async () => {
@@ -59,11 +58,9 @@ function App() {
     socket.on("connect", () => {
       socket.emit("get messages");
     });
-
     socket.on("new message", (messages) => {
       setMessages(messages);
     });
-
     socket.on("get messages", (messages) => {
       setMessages(messages);
     });

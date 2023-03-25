@@ -61,7 +61,7 @@ contract Dappcord is ERC721 {
     require(_id != 0); // User id not 0
     require(_id <= totalChannels); // Joins an existing channel
     require(hasJoined[_id][msg.sender] == false); // User not already joined that channel
-    require(msg.value >= channels[_id].cost); // makes sure that the amount recieved is more than or equal to the const of joining that channel
+    require(msg.value >= channels[_id].cost); // makes sure that the amount recieved is more than or equal to the cost of joining that channel
 
     // join channel
     hasJoined[_id][msg.sender] = true;

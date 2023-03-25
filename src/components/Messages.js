@@ -41,7 +41,7 @@ const Messages = ({ account, messages, currentChannel }) => {
         {currentChannel &&
           messages
             .filter(
-              (message) => message.channel === currentChannel.id.toString()
+              (message) => message.channel  === currentChannel.id.toString()
             )
             .map((message, index) => (
               <div key={index} className="message">
